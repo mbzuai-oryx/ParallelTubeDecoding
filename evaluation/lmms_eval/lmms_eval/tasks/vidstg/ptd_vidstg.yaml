@@ -1,0 +1,47 @@
+dataset_path: json
+dataset_kwargs:
+  data_files:
+    test: /path/to/vidstg_test.jsonl
+task: ptd_vidstg
+test_split: test
+output_type: generate_until
+doc_to_visual: !function utils.vidstg_doc_to_visual
+doc_to_text: !function utils.doc_to_text
+doc_to_target: !function utils.doc_to_answer
+process_results: !function utils.vidstg_process_results
+
+generation_kwargs:
+  max_new_tokens: 1024
+  temperature: 0
+  top_p: 1.0
+  num_beams: 1
+  do_sample: false
+
+metric_list:
+  - metric: ptd_vidstg_declarative_m_tIoU
+    aggregation: !function utils.vidstg_declarative_m_tiou
+    higher_is_better: true
+  - metric: ptd_vidstg_declarative_m_vIoU
+    aggregation: !function utils.vidstg_declarative_m_viou
+    higher_is_better: true
+  - metric: ptd_vidstg_declarative_vIoU@0.3
+    aggregation: !function utils.vidstg_declarative_viou03
+    higher_is_better: true
+  - metric: ptd_vidstg_declarative_vIoU@0.5
+    aggregation: !function utils.vidstg_declarative_viou05
+    higher_is_better: true
+  - metric: ptd_vidstg_interrogative_m_tIoU
+    aggregation: !function utils.vidstg_interrogative_m_tiou
+    higher_is_better: true
+  - metric: ptd_vidstg_interrogative_m_vIoU
+    aggregation: !function utils.vidstg_interrogative_m_viou
+    higher_is_better: true
+  - metric: ptd_vidstg_interrogative_vIoU@0.3
+    aggregation: !function utils.vidstg_interrogative_viou03
+    higher_is_better: true
+  - metric: ptd_vidstg_interrogative_vIoU@0.5
+    aggregation: !function utils.vidstg_interrogative_viou05
+    higher_is_better: true
+
+metadata:
+  version: 1.0

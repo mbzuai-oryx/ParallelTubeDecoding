@@ -1,0 +1,47 @@
+dataset_path: json
+dataset_kwargs:
+  data_files:
+    test: /path/to/hcstvg_test.jsonl
+task: ptd_hcstvg
+test_split: test
+output_type: generate_until
+doc_to_visual: !function utils.hcstvg_doc_to_visual
+doc_to_text: !function utils.doc_to_text
+doc_to_target: !function utils.doc_to_answer
+process_results: !function utils.hcstvg_process_results
+
+generation_kwargs:
+  max_new_tokens: 1024
+  temperature: 0
+  top_p: 1.0
+  num_beams: 1
+  do_sample: false
+
+metric_list:
+  - metric: ptd_hcstvg_v1_m_tIoU
+    aggregation: !function utils.hcstvg_v1_m_tiou
+    higher_is_better: true
+  - metric: ptd_hcstvg_v1_m_vIoU
+    aggregation: !function utils.hcstvg_v1_m_viou
+    higher_is_better: true
+  - metric: ptd_hcstvg_v1_vIoU@0.3
+    aggregation: !function utils.hcstvg_v1_viou03
+    higher_is_better: true
+  - metric: ptd_hcstvg_v1_vIoU@0.5
+    aggregation: !function utils.hcstvg_v1_viou05
+    higher_is_better: true
+  - metric: ptd_hcstvg_v2_m_tIoU
+    aggregation: !function utils.hcstvg_v2_m_tiou
+    higher_is_better: true
+  - metric: ptd_hcstvg_v2_m_vIoU
+    aggregation: !function utils.hcstvg_v2_m_viou
+    higher_is_better: true
+  - metric: ptd_hcstvg_v2_vIoU@0.3
+    aggregation: !function utils.hcstvg_v2_viou03
+    higher_is_better: true
+  - metric: ptd_hcstvg_v2_vIoU@0.5
+    aggregation: !function utils.hcstvg_v2_viou05
+    higher_is_better: true
+
+metadata:
+  version: 1.0

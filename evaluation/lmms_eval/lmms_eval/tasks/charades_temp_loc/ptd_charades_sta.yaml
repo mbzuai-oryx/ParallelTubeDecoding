@@ -1,0 +1,35 @@
+dataset_path: json
+dataset_kwargs:
+  data_files:
+    test: /path/to/charades_sta_test.jsonl
+task: ptd_charades_sta
+test_split: test
+output_type: generate_until
+doc_to_visual: !function utils.charades_doc_to_visual
+doc_to_text: !function utils.doc_to_text
+doc_to_target: !function utils.doc_to_answer
+process_results: !function utils.charades_process_results
+
+generation_kwargs:
+  max_new_tokens: 128
+  temperature: 0
+  top_p: 1.0
+  num_beams: 1
+  do_sample: false
+
+metric_list:
+  - metric: ptd_charades_sta_R@0.3
+    aggregation: mean
+    higher_is_better: true
+  - metric: ptd_charades_sta_R@0.5
+    aggregation: mean
+    higher_is_better: true
+  - metric: ptd_charades_sta_R@0.7
+    aggregation: mean
+    higher_is_better: true
+  - metric: ptd_charades_sta_mIoU
+    aggregation: mean
+    higher_is_better: true
+
+metadata:
+  version: 1.0
