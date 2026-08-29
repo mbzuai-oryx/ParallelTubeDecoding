@@ -116,7 +116,7 @@ def main(args):
     with gr.Blocks(fill_height=True) as demo:
         gr.ChatInterface(
             fn=bot_streaming_with_args,
-            title="Qwen2-VL-7B Instruct",
+            title="Parallel Tube Decoding · Qwen3-VL-4B",
             stop_btn="Stop Generation",
             multimodal=True,
             textbox=chat_input,
@@ -129,8 +129,8 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model-path", type=str, default=None)
-    parser.add_argument("--model-base", type=str, default="Qwen/Qwen2-VL-7B-Instruct")
+    parser.add_argument("--model-path", type=str, default="MBZUAI/ParallelTubeDecoding-Qwen3-VL-4B")
+    parser.add_argument("--model-base", type=str, default=None)
     parser.add_argument("--device", type=str, default="cuda")
     parser.add_argument("--load-8bit", action="store_true")
     parser.add_argument("--load-4bit", action="store_true")

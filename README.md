@@ -44,6 +44,27 @@ Spatio-temporal video grounding requires identifying when a queried event occurs
 | Evaluate VidSTG, HC-STVG, Charades-STA, and ActivityNet | [Evaluation guide](evaluation/README.md) and [lmms-eval task definitions](evaluation/lmms_eval/lmms_eval/tasks) |
 | Measure Quantized/PTD TCL and BPS | [Efficiency runner](evaluation/run_efficiency.sh), [reporter](evaluation/report_efficiency.py), and the [evaluation guide](evaluation/README.md#tcl-and-bps) |
 
+### 🚀 Quick Start: Local Inference
+
+After [installing the environment](INSTALL.md), launch the Gradio demo from the
+repository root. It loads the released merged PTD checkpoint from Hugging Face
+by default; `--disable_flash_attention` uses the broadly supported SDPA backend.
+
+```bash
+PYTHONPATH=src python src/serve/app.py --disable_flash_attention
+```
+
+Upload a video and use the grounding prompt below, replacing the text in angle
+brackets with the target event:
+
+```text
+Given the query: '<description of the target event>' Localize the described object throughout the video. Use object reference tokens, time tokens, and box tokens. Return the object reference, event time segment, and per-time bbox coordinates.
+```
+
+Pass `--model-path /path/to/merged-ptd-checkpoint` to use a local merged
+checkpoint. For benchmark inference with the paper's preprocessing and
+evaluation settings, follow the [evaluation guide](evaluation/README.md).
+
 ## 💡 Parallel Tube Decoding
 
 <p align="center">
