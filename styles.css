@@ -2600,7 +2600,7 @@ a.button:hover {
   letter-spacing: -0.035em;
 }
 
-.academic-theme .efficiency-card .contribution-title {
+.academic-theme .contribution-title {
   justify-content: center;
 }
 
@@ -2916,6 +2916,20 @@ a.button:hover {
 .academic-theme .speed-comparison-media {
   width: min(100%, 1080px);
   margin: 0 auto;
+}
+
+.academic-theme .speed-comparison-description {
+  max-width: 900px;
+  margin: 0 auto 24px;
+  color: #596a7f;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.academic-theme .speed-comparison-description span {
+  font-weight: 750;
 }
 
 .academic-theme .speed-carousel {
