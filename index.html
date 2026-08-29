@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Locate Anything in Videos introduces Parallel Tube Decoding for fast, accurate generative spatio-temporal video grounding.">
+  <meta property="og:title" content="Locate Anything in Videos">
+  <meta property="og:description" content="Rethinking efficient generative spatio-temporal video grounding with Parallel Tube Decoding.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/figures/qualitative_mainfig.png">
+  <title>Locate Anything in Videos · Parallel Tube Decoding</title>
+  <link rel="icon" type="image/png" href="assets/branding/proj_logo.png">
+  <link rel="stylesheet" href="styles.css?v=visual-spacing-20260829">
+  <script defer src="script.js?v=ptd-examples-20260829"></script>
+</head>
+<body class="academic-theme">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="side-nav" aria-label="Page sections" data-nav>
+    <a class="is-active" href="#teaser">Teaser</a>
+    <a href="#highlights">Highlights</a>
+    <a href="#speed">Visualize</a>
+    <a href="#results">Results</a>
+    <a href="#qualitative">Qualitative</a>
+    <a href="#citation">Citation</a>
+  </nav>
+
+  <main id="main">
+    <section class="hero" id="teaser">
+      <div class="hero-grid section-shell">
+        <div class="hero-copy reveal">
+          <h1>Locate Anything <span>in Videos</span></h1>
+          <p class="hero-subtitle">Rethinking Efficient Generative Spatio-Temporal Video Grounding</p>
+
+          <div class="authors" aria-label="Paper authors">
+            <a href="https://hanoonar.github.io/" target="_blank" rel="noreferrer">Hanoona Rasheed<sup>1</sup></a>
+            <span>Haania Siddiqui<sup>1</sup></span>
+            <span>Ming-Hsuan Yang<sup>2</sup></span>
+            <span>Fahad Shahbaz Khan<sup>1,3</sup></span>
+            <span>Salman Khan<sup>1,3</sup></span>
+          </div>
+
+          <p class="affiliations"><sup>1</sup> Mohamed bin Zayed University of Artificial Intelligence &nbsp;·&nbsp; <sup>2</sup> University of California, Merced &nbsp;·&nbsp; <sup>3</sup> Apertix</p>
+
+          <div class="affiliation-logos" aria-label="Paper affiliations in author index order">
+            <a class="affiliation-logo-link" href="https://mbzuai.ac.ae/" target="_blank" rel="noreferrer" aria-label="Visit the Mohamed bin Zayed University of Artificial Intelligence website">
+              <img class="affiliation-logo affiliation-logo-mbzuai" src="assets/affiliations/mbzuai.png" width="3304" height="1109" alt="Affiliation 1: Mohamed bin Zayed University of Artificial Intelligence">
+            </a>
+            <a class="affiliation-logo-link" href="https://www.ucmerced.edu/" target="_blank" rel="noreferrer" aria-label="Visit the University of California, Merced website">
+              <img class="affiliation-logo affiliation-logo-uc-merced" src="assets/affiliations/170824_merced_logo_masonserif.png" width="479" height="135" alt="Affiliation 2: University of California, Merced">
+            </a>
+            <a class="affiliation-logo-link" href="https://apertix.tech/" target="_blank" rel="noreferrer" aria-label="Visit the Apertix website">
+              <img class="affiliation-logo affiliation-logo-apertix" src="assets/affiliations/apertix_logo.jpeg" width="995" height="269" alt="Affiliation 3: Apertix">
+            </a>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button button-muted" href="assets/Locate_Anything_in_Videos_full_paper.pdf" target="_blank" rel="noreferrer">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6zM14 2v5h5M9 12h6M9 16h6"/></svg>
+              Paper
+            </a>
+            <a class="button button-primary" href="https://github.com/mbzuai-oryx/ParallelTubeDecoding" target="_blank" rel="noreferrer">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.87c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.57 9.57 0 0 1 12 6.82a9.5 9.5 0 0 1 2.5.34c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+              Code
+            </a>
+          </div>
+        </div>
+
+        <figure class="hero-media reveal" data-delay="1">
+          <div class="hero-video-shell">
+            <video muted loop controls playsinline preload="metadata" poster="assets/posters/decoding-strategies.jpg?v=20260827-1512">
+              <source src="assets/decoding-strategies.mp4?v=20260827-1512" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+          </div>
+          <figcaption><strong>Teaser video</strong></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section contributions-section" id="highlights">
+      <div class="section-shell">
+        <div class="main-contributions reveal">
+          <div class="contributions-heading">
+            <p class="kicker">Highlights</p>
+            <h2>We propose Parallel Tube Decoding</h2>
+          </div>
+
+          <div class="contribution-grid">
+            <article class="contribution-card efficiency-card">
+              <div class="contribution-title">
+                <span class="contribution-number">1</span>
+                <h3>Efficiency gains</h3>
+              </div>
+              <p class="efficiency-summary">We remove sequential dependencies by predicting the full spatio-temporal tube in just two decoding rounds.</p>
+              <div class="contribution-stats">
+                <div class="contribution-stat">
+                  <span class="accent-label">79×&nbsp;Lower Latency</span>
+                </div>
+                <div class="contribution-stat">
+                  <span class="accent-label">92×&nbsp;Higher Boxes Per Second</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="contribution-card">
+              <div class="contribution-title">
+                <span class="contribution-number">2</span>
+                <h3>Improved accuracy</h3>
+              </div>
+              <p class="contribution-summary">We improve both temporal and spatial grounding by preventing error propagation across the predicted tube.</p>
+              <div class="accuracy-points">
+                <span>Sharper temporal boundaries</span>
+                <span>More consistent spatial tubes</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="contribution-point-grid">
+            <article class="contribution-point">
+              <span class="contribution-point-number">01</span>
+              <div>
+                <h3>Decoding formulation</h3>
+                <p>We study four decoding strategies for generative STVG and introduce Parallel Tube Decoding, reducing tube generation from 4 + 7<em>T</em> rounds under Quantized Token Decoding and 1 + <em>T</em> under Sequential Block Decoding to just two rounds, independent of the number of boxes.</p>
+              </div>
+            </article>
+
+            <article class="contribution-point">
+              <span class="contribution-point-number">02</span>
+              <div>
+                <h3>Attention mechanism</h3>
+                <p>We enable PTD through Decoupled Block Attention, which removes cross-box dependencies while preserving shared multimodal evidence, keeping each box grounded in the visual content at its own temporal position.</p>
+              </div>
+            </article>
+
+            <article class="contribution-point">
+              <span class="contribution-point-number">03</span>
+              <div>
+                <h3>Localization-aware optimization</h3>
+                <p>Policy optimization with complementary temporal and spatial rewards directly improves event boundaries and bounding-box geometry.</p>
+              </div>
+            </article>
+
+            <article class="contribution-point">
+              <span class="contribution-point-number">04</span>
+              <div>
+                <h3>Efficiency and generalization</h3>
+                <p>PTD cuts Tube Completion Latency by 79× and raises spatial decoding throughput by 92× while improving localization quality. With a compact 4B backbone, it performs strongly on STVG and generalizes zero-shot to temporal grounding, evidence-grounded VideoQA, and referring video object tracking.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section speed-section" id="speed">
+      <div class="section-shell">
+        <div class="section-intro reveal">
+          <h2>Explore the Results</h2>
+        </div>
+
+        <figure class="ptd-examples-media reveal">
+          <div class="ptd-examples-video-shell">
+            <video controls muted loop playsinline preload="metadata" poster="assets/posters/ptd-examples.jpg?v=20260829">
+              <source src="assets/ptd-examples.mp4?v=20260829" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+          </div>
+          <figcaption><strong>Parallel Tube Decoding examples</strong></figcaption>
+        </figure>
+
+        <figure class="speed-comparison-media reveal">
+          <div class="speed-carousel" data-speed-carousel tabindex="0" aria-label="Decoding speed video carousel">
+            <button class="speed-carousel-arrow speed-carousel-prev" type="button" data-speed-prev aria-label="Show previous video">
+              <span aria-hidden="true">←</span>
+            </button>
+
+            <div class="speed-carousel-viewport">
+              <div class="speed-carousel-track" data-speed-track>
+                <article class="speed-video-card speed-slide" data-speed-slide data-speed-name="Dog by the river">
+                  <div class="speed-video-shell">
+                    <video controls muted loop playsinline preload="metadata" poster="assets/posters/speed-dog-river.jpg?v=20260827-2022">
+                      <source src="assets/speed-dog-river.mp4?v=20260827-2022" type="video/mp4">
+                      Your browser does not support embedded video.
+                    </video>
+                  </div>
+                </article>
+
+                <article class="speed-video-card speed-slide" data-speed-slide data-speed-name="Clock" aria-hidden="true">
+                  <div class="speed-video-shell">
+                    <video controls muted loop playsinline preload="metadata" poster="assets/posters/speed-clock.jpg?v=20260827-2022" tabindex="-1">
+                      <source src="assets/speed-clock.mp4?v=20260827-2022" type="video/mp4">
+                      Your browser does not support embedded video.
+                    </video>
+                  </div>
+                </article>
+
+                <article class="speed-video-card speed-slide" data-speed-slide data-speed-name="Apple" aria-hidden="true">
+                  <div class="speed-video-shell">
+                    <video controls muted loop playsinline preload="metadata" poster="assets/posters/speed-apple.jpg?v=20260827-2022" tabindex="-1">
+                      <source src="assets/speed-apple.mp4?v=20260827-2022" type="video/mp4">
+                      Your browser does not support embedded video.
+                    </video>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <button class="speed-carousel-arrow speed-carousel-next" type="button" data-speed-next aria-label="Show next video">
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+          <figcaption><strong>Decoding Speed Comparison</strong></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section main-results-section" id="results">
+      <div class="section-shell">
+        <div class="section-intro reveal">
+          <h2>Main Results</h2>
+        </div>
+
+        <div class="results-table-group reveal">
+          <div class="results-group-heading">
+            <span>01</span>
+            <h3>Results on Decoding Strategies</h3>
+          </div>
+
+          <figure class="paper-table-card">
+            <div class="paper-table-image-wrap">
+              <img src="assets/tables/table1.png" width="1466" height="368" alt="Comparison of four decoding strategies on VidSTG, including grounding accuracy, tube completion latency, and boxes per second" loading="lazy" decoding="async">
+            </div>
+            <figcaption>
+              <span class="paper-table-number">Table 1</span>
+              <p><strong>Comparison of decoding strategies on VidSTG.</strong> We report temporal and video IoU for declarative and interrogative queries, together with Tube Completion Latency (TCL) and Boxes Per Second (BPS). Parallel Tube Decoding achieves the strongest grounding performance, lowest latency, and highest throughput.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="results-table-group reveal">
+          <div class="results-group-heading">
+            <span>02</span>
+            <h3>Results on STVG Benchmarks</h3>
+          </div>
+
+          <div class="paper-table-stack">
+            <figure class="paper-table-card">
+              <div class="paper-table-image-wrap">
+                <img src="assets/tables/table2.png" width="1466" height="807" alt="Comparison with backbone baselines and prior multimodal large language models on VidSTG" loading="lazy" decoding="async">
+              </div>
+              <figcaption>
+                <span class="paper-table-number">Table 2</span>
+                <p><strong>Results on VidSTG.</strong> Comparison with backbone baselines and prior multimodal large language models for declarative and interrogative spatio-temporal grounding. Our compact Qwen3-VL-4B model with GRPO and PTD delivers the strongest overall results.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="paper-table-card">
+              <div class="paper-table-image-wrap">
+                <img src="assets/tables/table3.png" width="1466" height="844" alt="Comparison with prior methods on HC-STVG version 1 and version 2" loading="lazy" decoding="async">
+              </div>
+              <figcaption>
+                <span class="paper-table-number">Table 3</span>
+                <p><strong>Results on HC-STVG.</strong> Comparison with backbone baselines and prior methods on HC-STVG v1 and v2. PTD achieves strong temporal localization and the best video IoU across both benchmark versions.</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="results-table-group reveal">
+          <div class="results-group-heading">
+            <span>03</span>
+            <h3>Qualitative Comparison with SOTA Models</h3>
+          </div>
+
+          <figure class="paper-table-card sota-video-card">
+            <div class="paper-table-image-wrap">
+              <div class="video-stack">
+                <article class="video-example">
+                  <div class="video-shell">
+                    <video controls muted loop playsinline preload="metadata" poster="assets/posters/card.jpg">
+                      <source src="assets/card.mp4" type="video/mp4">
+                      Your browser does not support embedded video.
+                    </video>
+                  </div>
+                </article>
+
+                <article class="video-example">
+                  <div class="video-shell">
+                    <video controls muted loop playsinline preload="metadata" poster="assets/posters/van.jpg">
+                      <source src="assets/van.mp4" type="video/mp4">
+                      Your browser does not support embedded video.
+                    </video>
+                  </div>
+                </article>
+
+                <article class="video-example">
+                  <div class="video-shell">
+                    <video controls muted loop playsinline preload="metadata" poster="assets/posters/tart.jpg">
+                      <source src="assets/tart.mp4" type="video/mp4">
+                      Your browser does not support embedded video.
+                    </video>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <figcaption>
+              <span class="paper-table-number">Qualitative</span>
+              <p>We compare PTD with competitive STVG methods on challenging video-grounding examples. Like many existing approaches, STVG-R1 and DEViL use the MLLM for temporal localization but construct the spatial tube using external detection or tracking modules. In contrast, PTD directly generates both the temporal interval and complete spatial tube, producing more accurate temporal boundaries and spatial localization. The three videos highlight fine-grained target identification among visually similar distractors, large changes in object scale as the target approaches the camera, and event-specific temporal localization rather than simply predicting the full period in which the target is visible.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="results-table-group reveal">
+          <div class="results-group-heading">
+            <span>04</span>
+            <h3>Generalization Beyond STVG</h3>
+          </div>
+
+          <div class="paper-table-stack">
+            <figure class="paper-table-card">
+              <div class="paper-table-image-wrap">
+                <img src="assets/tables/table4.png" width="1466" height="358" alt="Zero-shot temporal grounding results on Charades-STA and ActivityNet Captions" loading="lazy" decoding="async">
+              </div>
+              <figcaption>
+                <span class="paper-table-number">Table 4</span>
+                <p><strong>Zero-shot temporal grounding.</strong> Results on Charades-STA and ActivityNet Captions without task-specific training. Our model improves over the strongest prior zero-shot methods, including under stricter temporal-overlap thresholds.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="paper-table-card">
+              <div class="paper-table-image-wrap">
+                <img src="assets/tables/table5.png" width="1466" height="587" alt="Zero-shot results on ReXTime and referring video object tracking benchmarks" loading="lazy" decoding="async">
+              </div>
+              <figcaption>
+                <span class="paper-table-number">Table 5</span>
+                <p><strong>Generalization to grounded VideoQA and video object tracking.</strong> Left: zero-shot evidence-aware question answering on ReXTime. Right: referring video object tracking on Ref-DAVIS, Ref-YT-VOS, and ReasonVOS using SAM2 or SAM3.</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="results-table-group reveal">
+          <div class="results-group-heading">
+            <span>05</span>
+            <h3>Ablation Study</h3>
+          </div>
+
+          <figure class="paper-table-card">
+            <div class="paper-table-image-wrap">
+              <img src="assets/tables/table6.png" width="1466" height="306" alt="Ablation of temporal and spatial localization rewards on declarative and interrogative VidSTG queries" loading="lazy" decoding="async">
+            </div>
+            <figcaption>
+              <span class="paper-table-number">Table 6</span>
+              <p><strong>Ablation of localization-aware rewards.</strong> Temporal and spatial rewards provide complementary improvements for declarative and interrogative grounding. Combining both produces the strongest overall spatio-temporal localization performance.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section demo-section" id="qualitative">
+      <div class="section-shell">
+        <div class="section-intro reveal">
+          <h2>Qualitative Results</h2>
+        </div>
+
+        <div class="qualitative-results-group">
+          <div class="results-group-heading reveal">
+            <span>01</span>
+            <h3>Effect of GRPO Rewards</h3>
+          </div>
+
+          <div class="reward-figure-stack reveal">
+            <figure class="paper-table-card paper-reward-figure">
+              <div class="paper-table-image-wrap">
+                <img src="assets/figures/sft_vs_spatial_reward.png" width="1322" height="600" alt="Qualitative comparison of supervised fine-tuning and GRPO with spatial reward on two video grounding examples" loading="lazy" decoding="async">
+              </div>
+              <figcaption>
+                <span class="paper-table-number">Spatial Reward</span>
+                <p><strong>Qualitative results illustrating the effect of the spatial reward.</strong> <span class="caption-green">Green</span>, <span class="caption-red">red</span>, and <span class="caption-blue">blue</span> denote the ground-truth, SFT, and GRPO with spatial reward predictions, respectively. In the first example, the spatial reward maintains tight localization of the rider under rapid motion. In the second, it preserves target consistency despite substantial changes in object scale and interference from nearby entities. These examples show how the spatial reward improves both bounding-box precision and consistent target localization across time.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="paper-table-card paper-reward-figure">
+              <div class="paper-table-image-wrap">
+                <img src="assets/figures/sft_vs_temporal_reward.png" width="1322" height="622" alt="Qualitative comparison of supervised fine-tuning and GRPO with temporal reward on two video grounding examples" loading="lazy" decoding="async">
+              </div>
+              <figcaption>
+                <span class="paper-table-number">Temporal Reward</span>
+                <p><strong>Qualitative results illustrating the effect of the temporal reward.</strong> <span class="caption-green">Green</span>, <span class="caption-red">red</span>, and <span class="caption-blue">blue</span> denote the ground-truth, SFT, and GRPO with temporal reward predictions, respectively. In the first example, SFT localizes only the most salient portion of the event despite accurate spatial boxes, whereas the temporal reward recovers the complete interaction. In the second, the temporal reward prevents the prediction from extending beyond the queried event while the target remains visible. These examples show how the temporal reward improves boundary prediction, ensuring that the generated tube aligns with the complete temporal extent of the queried event.</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="qualitative-results-group">
+          <div class="results-group-heading reveal">
+            <span>02</span>
+            <h3>Cross-box dependency and error propagation</h3>
+          </div>
+
+          <figure class="paper-table-card reveal">
+            <div class="paper-table-image-wrap">
+              <img src="assets/figures/ptd_plots.png" width="2387" height="828" alt="Analysis of tube-completion latency, attention distribution across tube decoding, and error propagation with sequential decoding distance" loading="lazy" decoding="async">
+            </div>
+            <figcaption>
+              <span class="paper-table-number">Analysis</span>
+              <p><strong>Analysis of decoding efficiency and trajectory-level dependency.</strong> (a) Tube completion latency as the number of grounded frames increases. PTD maintains nearly constant latency, while token-based and block decoding scale with tube length. (b) Attention distribution across tube decoding for Sequential Block Decoding (dotted) and PTD (solid). Sequential decoding progressively shifts attention from the video toward prior text. (c) History-correction analysis for Sequential Block Decoding. Replacing an erroneous box <em>B</em><sub>i</sub> with its ground-truth box improves subsequent predictions, with the effect gradually decreasing as the decoding distance <em>j</em> − <em>i</em> increases.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section citation-section" id="citation">
+      <div class="section-shell citation-grid">
+        <div class="citation-copy reveal">
+          <p class="kicker">Citation</p>
+          <h2>Locate Anything in Videos</h2>
+          <p>If you find Parallel Tube Decoding useful for your research, please consider citing our work.</p>
+        </div>
+
+        <div class="bibtex-card reveal">
+          <div class="bibtex-top">
+            <span>BibTeX</span>
+            <button type="button" data-copy-bib><i aria-hidden="true">⧉</i> <span>Copy</span></button>
+          </div>
+          <pre data-bibtex>@misc{rasheed2026locateanythingvideos,
+  title  = {Locate Anything in Videos: Rethinking Efficient Generative Spatio-Temporal Video Grounding},
+  author = {Hanoona Rasheed and Haania Siddiqui and Ming-Hsuan Yang and Fahad Shahbaz Khan and Salman Khan},
+  year   = {2026}
+}</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
