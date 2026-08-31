@@ -10,7 +10,7 @@
 
 <sup>1</sup> Mohamed bin Zayed University of Artificial Intelligence · <sup>2</sup> University of California, Merced · <sup>3</sup> Apertix
 
-[![Paper](https://img.shields.io/badge/📄_Paper-PDF-blue)](assets/Locate_Anything_in_Videos_full_paper.pdf)
+[![Paper](https://img.shields.io/badge/📄_Paper-PDF-blue)](https://arxiv.org/pdf/2608.28192)
 [![Project Page](https://img.shields.io/badge/🌐_Project-Page-blue)](https://mbzuai-oryx.github.io/ParallelTubeDecoding/)
 [![Model](https://img.shields.io/badge/🤗_Model-Hugging_Face-yellow)](https://huggingface.co/MBZUAI/ParallelTubeDecoding-Qwen3-VL-4B)
 
@@ -164,10 +164,14 @@ This codebase is built on [Qwen-VL-Series-Finetune](https://github.com/2U1/Qwen-
 ## 📜 Citation
 
 ```bibtex
-@misc{rasheed2026locateanythingvideos,
-  title  = {Locate Anything in Videos: Rethinking Efficient Generative Spatio-Temporal Video Grounding},
-  author = {Hanoona Rasheed and Haania Siddiqui and Ming-Hsuan Yang and Fahad Shahbaz Khan and Salman Khan},
-  year   = {2026}
+@misc{rasheed2026locatevideosrethinkingefficient,
+  title         = {Locate Anything in Videos: Rethinking Efficient Generative Spatio-Temporal Video Grounding},
+  author        = {Rasheed, Hanoona and Siddiqui, Haania and Yang, Ming-Hsuan and Khan, Fahad Shahbaz and Khan, Salman},
+  year          = {2026},
+  eprint        = {2608.28192},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2608.28192}
 }
 ```
 
