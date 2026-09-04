@@ -178,7 +178,7 @@ This codebase is built on [Qwen-VL-Series-Finetune](https://github.com/2U1/Qwen-
 ---
 
 <p align="center">
-  <a href="https://www.ival-mbzuai.com"><img src="assets/branding/IVAL_logo.png" width="200" alt="Intelligent Visual Analytics Lab"></a>
+  <a href="https://www.ival-mbzuai.net"><img src="assets/branding/IVAL_logo.png" width="200" alt="Intelligent Visual Analytics Lab"></a>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/mbzuai-oryx"><img src="assets/branding/Oryx_logo.png" width="100" alt="Oryx"></a>
   &nbsp;&nbsp;&nbsp;&nbsp;
